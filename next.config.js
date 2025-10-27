@@ -17,7 +17,6 @@ const nextConfig = {
   
   // Optimizar bundle
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'date-fns'],
   },
   
