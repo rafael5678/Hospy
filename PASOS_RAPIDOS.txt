@@ -1,0 +1,129 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║           🚀 PASOS RÁPIDOS - CONFIGURACIÓN HOSPY 🚀          ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+✅ MONGODB YA ESTÁ CORRIENDO - ¡PERFECTO!
+✅ PUERTO 3004 ESTÁ LIBRE - ¡LISTO PARA USAR!
+
+═══════════════════════════════════════════════════════════════
+
+📝 PASO 1: CREAR ARCHIVO .env.local (¡MUY IMPORTANTE!)
+
+Ejecuta este comando en tu terminal:
+
+(echo MONGODB_URI=mongodb://localhost:27017/hospy && echo NEXT_PUBLIC_APP_URL=http://localhost:3004) > .env.local
+
+O créalo manualmente:
+1. Archivo nuevo en la raíz del proyecto
+2. Nómbralo: .env.local
+3. Contenido:
+
+MONGODB_URI=mongodb://localhost:27017/hospy
+NEXT_PUBLIC_APP_URL=http://localhost:3004
+
+═══════════════════════════════════════════════════════════════
+
+🗄️ PASO 2: CONFIGURAR MONGODB COMPASS
+
+1. Abre MongoDB Compass
+2. Verás: mongodb://localhost:27017
+3. Haz clic en "Connect"
+4. Una vez conectado:
+   - Haz clic en "Create Database"
+   - Database Name: hospy
+   - Collection Name: patients
+   - Haz clic en "Create Database"
+
+═══════════════════════════════════════════════════════════════
+
+🚀 PASO 3: INICIAR EL PROYECTO
+
+Ejecuta estos comandos:
+
+npm install
+npm run dev -- -p 3004
+
+═══════════════════════════════════════════════════════════════
+
+🌐 PASO 4: ABRIR EN NAVEGADOR
+
+Abre tu navegador en:
+
+http://localhost:3004
+
+═══════════════════════════════════════════════════════════════
+
+✨ PASO 5: REGISTRAR PRIMER PACIENTE
+
+1. Verás el Dashboard de Hospy
+2. Haz clic en "Nuevo Paciente"
+3. Llena el formulario:
+
+   Nombre: Juan
+   Apellido: Pérez
+   Fecha: 1990-01-15
+   Género: Masculino
+   Teléfono: 809-555-1234
+   Email: juan@example.com
+   Dirección: Calle Principal 123
+   Ciudad: Santo Domingo
+   
+   Contacto Emergencia:
+   Nombre: María Pérez
+   Teléfono: 809-555-5678
+   Relación: Esposa
+   
+   Tipo de Sangre: O+
+   Estado: Activo
+
+4. Haz clic en "Registrar Paciente"
+
+═══════════════════════════════════════════════════════════════
+
+🔍 PASO 6: VERIFICAR EN MONGODB COMPASS
+
+1. Ve a MongoDB Compass
+2. Navega a: hospy → patients
+3. Presiona F5 para actualizar
+4. ¡Verás tu paciente registrado!
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ SI ALGO FALLA:
+
+Error "Cannot connect to database":
+→ Verifica que MongoDB esté corriendo: net start MongoDB
+
+Error "Port already in use":
+→ Usa: npm run dev -- -p 3005
+
+Error "Module not found":
+→ Ejecuta: npm install
+
+═══════════════════════════════════════════════════════════════
+
+📚 MÁS AYUDA:
+
+Lee el archivo: CONFIGURACION_COMPLETA.md
+Tiene TODO explicado paso a paso con soluciones.
+
+═══════════════════════════════════════════════════════════════
+
+🎯 ORDEN DE EJECUCIÓN:
+
+1️⃣ Crear .env.local
+2️⃣ Configurar MongoDB Compass
+3️⃣ npm install
+4️⃣ npm run dev -- -p 3004
+5️⃣ Abrir http://localhost:3004
+6️⃣ Registrar paciente
+7️⃣ Verificar en Compass
+
+═══════════════════════════════════════════════════════════════
+
+🏥 ¡Tu sistema Hospy estará listo en 5 minutos! 💙
+
+═══════════════════════════════════════════════════════════════
+

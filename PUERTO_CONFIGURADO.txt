@@ -1,0 +1,82 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║              🏥 HOSPY - PUERTO CONFIGURADO 🏥                ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+✅ El proyecto está configurado para usar el puerto 3003
+
+📍 URL DE LA APLICACIÓN:
+   
+   http://localhost:3003
+
+═══════════════════════════════════════════════════════════════
+
+🚀 CÓMO EJECUTAR:
+
+   El servidor ya está corriendo en segundo plano en el puerto 3003.
+   
+   Si necesitas reiniciarlo en el futuro, usa:
+   
+   npm run dev -- -p 3003
+
+═══════════════════════════════════════════════════════════════
+
+📝 ARCHIVO .env.local CREADO:
+
+   ✅ MONGODB_URI=mongodb://localhost:27017/hospy
+   ✅ NEXT_PUBLIC_APP_URL=http://localhost:3003
+
+═══════════════════════════════════════════════════════════════
+
+💡 OTROS PUERTOS DISPONIBLES:
+
+   Si el 3003 también está ocupado, puedes usar:
+   
+   npm run dev -- -p 3004
+   npm run dev -- -p 3005
+   npm run dev -- -p 8000
+   npm run dev -- -p 8080
+   
+   O cualquier puerto que esté libre!
+
+═══════════════════════════════════════════════════════════════
+
+🔧 COMANDOS ÚTILES:
+
+   # Ejecutar en puerto específico
+   npm run dev -- -p 3003
+   
+   # Ver qué puertos están en uso (Windows)
+   netstat -ano | findstr :3000
+   netstat -ano | findstr :3001
+   netstat -ano | findstr :3002
+   
+   # Matar proceso en puerto específico (Windows)
+   # 1. Encontrar el PID: netstat -ano | findstr :3000
+   # 2. Matar: taskkill /PID <numero> /F
+
+═══════════════════════════════════════════════════════════════
+
+✨ PRÓXIMOS PASOS:
+
+   1. ✅ El servidor ya está corriendo
+   2. 🌐 Abre: http://localhost:3003
+   3. 📝 Registra tu primer paciente
+   4. 🎉 ¡Disfruta de tu sistema hospitalario!
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ IMPORTANTE:
+
+   Si cierras la terminal, el servidor se detendrá.
+   Para iniciarlo nuevamente:
+   
+   npm run dev -- -p 3003
+
+═══════════════════════════════════════════════════════════════
+
+🏥 ¡Tu sistema Hospy está listo en el puerto 3003! 💙
+
+═══════════════════════════════════════════════════════════════
+
