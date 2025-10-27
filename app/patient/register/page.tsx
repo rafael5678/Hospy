@@ -48,8 +48,8 @@ export default function PatientRegisterPage() {
     }
 
     try {
-      const { confirmPassword, ...dataToSend } = formData;
-      dataToSend.status = 'Activo';
+      const { confirmPassword, ...rest } = formData;
+      const dataToSend = { ...rest, status: 'Activo' };
       
       const response = await fetch('/api/auth/patient/register', {
         method: 'POST',
