@@ -100,7 +100,7 @@ export default function DashboardPage() {
             </svg>
             <div>
               <p style={{ fontWeight: '600' }}>Consultas</p>
-              <p style={{ fontSize: '0.875rem', opacity: 0.9' }}>Historial</p>
+              <p style={{ fontSize: '0.875rem', opacity: 0.9 }}>Historial</p>
             </div>
           </a>
         </div>
