@@ -3,6 +3,54 @@ import connectDB from '@/lib/mongodb';
 import Admin from '@/models/Admin';
 import { hashPassword } from '@/lib/auth';
 
+// Ruta GET para setup automático
+export async function GET() {
+  try {
+    await connectDB();
+    
+    // Verificar si ya existe un admin
+    const existingAdmin = await Admin.findOne();
+    if (existingAdmin) {
+      return NextResponse.json(
+        { success: false, error: 'Ya existe un administrador en el sistema' },
+        { status: 403 }
+      );
+    }
+    
+    // Crear admin con credenciales predefinidas
+    const hashedPassword = await hashPassword('rafael123');
+    
+    const admin = await Admin.create({
+      username: 'admin',
+      email: 'admin@hospy.com',
+      password: hashedPassword,
+      fullName: 'Administrador Principal',
+      role: 'super_admin',
+      status: 'Activo'
+    });
+    
+    return NextResponse.json(
+      { 
+        success: true, 
+        message: 'Administrador creado exitosamente',
+        credentials: {
+          username: 'admin',
+          password: 'rafael123',
+          email: 'admin@hospy.com'
+        }
+      },
+      { status: 201 }
+    );
+    
+  } catch (error: any) {
+    console.error('Error al crear administrador:', error);
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    );
+  }
+}
+
 // Esta ruta solo funcionará si NO hay administradores en la BD
 export async function POST(request: NextRequest) {
   try {
