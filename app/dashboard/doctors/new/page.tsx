@@ -53,7 +53,7 @@ export default function NewDoctorPage() {
 
       if (data.success) {
         alert('¡Médico registrado exitosamente! Ya puede ingresar al portal médico.');
-        router.push('/doctors');
+        router.push('/dashboard/doctors');
       } else {
         alert('Error: ' + data.error);
       }
@@ -93,7 +93,7 @@ export default function NewDoctorPage() {
         {/* Header */}
         <div className="mb-8">
           <Link
-            href="/doctors"
+            href="/dashboard/doctors"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -371,7 +371,7 @@ export default function NewDoctorPage() {
           {/* Botones */}
           <div className="flex gap-4 justify-end">
             <Link
-              href="/doctors"
+              href="/dashboard/doctors"
               className="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
             >
               Cancelar

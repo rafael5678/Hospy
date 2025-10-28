@@ -69,7 +69,7 @@ export default function NewPatientPage() {
 
       if (result.success) {
         alert('¡Paciente registrado exitosamente!');
-        router.push('/patients');
+        router.push('/dashboard/patients');
       } else {
         alert('Error: ' + result.error);
       }
@@ -85,7 +85,7 @@ export default function NewPatientPage() {
     <div className="max-w-4xl mx-auto">
       <div className="mb-6">
         <Link
-          href="/patients"
+          href="/dashboard/patients"
           className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-4"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -388,7 +388,7 @@ export default function NewPatientPage() {
             {loading ? 'Guardando...' : 'Registrar Paciente'}
           </button>
           <Link
-            href="/patients"
+            href="/dashboard/patients"
             className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
           >
             Cancelar

@@ -105,7 +105,7 @@ export default function PatientsPage() {
           </p>
         </div>
         <Link
-          href="/patients/new"
+          href="/dashboard/patients/new"
           className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
         >
           <UserPlus className="w-5 h-5" />
@@ -148,7 +148,7 @@ export default function PatientsPage() {
           <div className="text-center py-12">
             <p className="text-gray-500 text-lg">No se encontraron pacientes</p>
             <Link
-              href="/patients/new"
+              href="/dashboard/patients/new"
               className="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium"
             >
               Registrar el primer paciente →

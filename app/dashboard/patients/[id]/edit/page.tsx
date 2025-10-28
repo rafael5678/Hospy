@@ -66,7 +66,7 @@ export default function EditPatientPage() {
         });
       } else {
         alert('Paciente no encontrado');
-        router.push('/patients');
+        router.push('/dashboard/patients');
       }
     } catch (error) {
       console.error('Error al cargar paciente:', error);
@@ -113,7 +113,7 @@ export default function EditPatientPage() {
 
       if (result.success) {
         alert('¡Paciente actualizado exitosamente!');
-        router.push(`/patients/${params.id}`);
+        router.push(`/dashboard/patients/${params.id}`);
       } else {
         alert('Error: ' + result.error);
       }
@@ -137,7 +137,7 @@ export default function EditPatientPage() {
     <div className="max-w-4xl mx-auto">
       <div className="mb-6">
         <Link
-          href={`/patients/${params.id}`}
+          href={`/dashboard/patients/${params.id}`}
           className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-4"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -440,7 +440,7 @@ export default function EditPatientPage() {
             {saving ? 'Guardando...' : 'Guardar Cambios'}
           </button>
           <Link
-            href={`/patients/${params.id}`}
+            href={`/dashboard/patients/${params.id}`}
             className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
           >
             Cancelar

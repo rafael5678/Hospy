@@ -89,7 +89,7 @@ export default function PatientDetailPage() {
           Paciente no encontrado
         </h2>
         <button
-          onClick={() => router.push('/patients')}
+          onClick={() => router.push('/dashboard/patients')}
           style={{
             marginTop: '1rem',
             padding: '0.75rem 1.5rem',
@@ -111,7 +111,7 @@ export default function PatientDetailPage() {
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
         <button
-          onClick={() => router.push('/patients')}
+          onClick={() => router.push('/dashboard/patients')}
           style={{
             marginBottom: '1rem',
             padding: '0.5rem 1rem',

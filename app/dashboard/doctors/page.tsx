@@ -73,7 +73,7 @@ export default function DoctorsPage() {
             <p className="text-gray-600 mt-2">Gestión del personal médico</p>
           </div>
           <Link
-            href="/doctors/new"
+            href="/dashboard/doctors/new"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-lg"
           >
             <Plus className="w-5 h-5" />
@@ -118,7 +118,7 @@ export default function DoctorsPage() {
             <Stethoscope className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-600 text-lg">No hay médicos registrados</p>
             <Link
-              href="/doctors/new"
+              href="/dashboard/doctors/new"
               className="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium"
             >
               Registrar primer médico
