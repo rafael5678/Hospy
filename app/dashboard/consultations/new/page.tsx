@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ClipboardList, ArrowLeft, Save, User, Stethoscope } from 'lucide-react';
 
-export default function NewConsultationPage() {
+function NewConsultationForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const appointmentId = searchParams.get('appointmentId');
@@ -405,6 +405,21 @@ export default function NewConsultationPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function NewConsultationPage() {
+  return (
+    <Suspense fallback={
+      <div className="ml-64 p-8 flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-600 border-t-transparent"></div>
+          <p className="mt-4 text-gray-600">Cargando...</p>
+        </div>
+      </div>
+    }>
+      <NewConsultationForm />
+    </Suspense>
   );
 }
 

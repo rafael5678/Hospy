@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { FolderOpen, ArrowLeft, Save } from 'lucide-react';
 
-export default function NewMedicalRecordPage() {
+function NewMedicalRecordForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const consultationId = searchParams.get('consultationId');
@@ -245,6 +245,21 @@ export default function NewMedicalRecordPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function NewMedicalRecordPage() {
+  return (
+    <Suspense fallback={
+      <div className="ml-64 p-8 flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-purple-600 border-t-transparent"></div>
+          <p className="mt-4 text-gray-600">Cargando...</p>
+        </div>
+      </div>
+    }>
+      <NewMedicalRecordForm />
+    </Suspense>
   );
 }
 
