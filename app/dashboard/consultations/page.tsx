@@ -84,7 +84,7 @@ export default function ConsultationsPage() {
             <p className="text-gray-600 mt-2">Registro de consultas y diagnósticos</p>
           </div>
           <Link
-            href="/consultations/new"
+            href="/dashboard/consultations/new"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-lg"
           >
             <Plus className="w-5 h-5" />
@@ -117,7 +117,7 @@ export default function ConsultationsPage() {
             <ClipboardList className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-600 text-lg">No hay consultas registradas</p>
             <Link
-              href="/consultations/new"
+              href="/dashboard/consultations/new"
               className="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium"
             >
               Registrar primera consulta
@@ -201,14 +201,14 @@ export default function ConsultationsPage() {
                   {/* Acciones */}
                   <div className="flex md:flex-col gap-2">
                     <Link
-                      href={`/consultations/${consultation._id}`}
+                      href={`/dashboard/consultations/${consultation._id}`}
                       className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
                     >
                       Ver Completa
                     </Link>
                     {consultation.status === 'Completada' && (
                       <Link
-                        href={`/prescriptions/new?consultationId=${consultation._id}`}
+                        href={`/dashboard/prescriptions/new?consultationId=${consultation._id}`}
                         className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
                       >
                         Recetar

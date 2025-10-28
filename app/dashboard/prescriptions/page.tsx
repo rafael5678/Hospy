@@ -81,7 +81,7 @@ export default function PrescriptionsPage() {
             <p className="text-gray-600 mt-2">Recetas y medicamentos prescritos</p>
           </div>
           <Link
-            href="/prescriptions/new"
+            href="/dashboard/prescriptions/new"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-lg"
           >
             <Plus className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function PrescriptionsPage() {
             <Pill className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-600 text-lg">No hay prescripciones registradas</p>
             <Link
-              href="/prescriptions/new"
+              href="/dashboard/prescriptions/new"
               className="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium"
             >
               Crear primera prescripción
@@ -181,7 +181,7 @@ export default function PrescriptionsPage() {
                   {/* Acciones */}
                   <div className="flex md:flex-col gap-2">
                     <Link
-                      href={`/prescriptions/${prescription._id}`}
+                      href={`/dashboard/prescriptions/${prescription._id}`}
                       className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
                     >
                       Ver Detalle

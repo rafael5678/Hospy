@@ -103,7 +103,7 @@ export default function MedicalRecordsPage() {
             <p className="text-gray-600 mt-2">Documentos y archivos médicos de pacientes</p>
           </div>
           <Link
-            href="/medical-records/new"
+            href="/dashboard/medical-records/new"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-lg"
           >
             <Plus className="w-5 h-5" />
@@ -139,7 +139,7 @@ export default function MedicalRecordsPage() {
             <FolderOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-600 text-lg">No hay historias clínicas registradas</p>
             <Link
-              href="/medical-records/new"
+              href="/dashboard/medical-records/new"
               className="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium"
             >
               Subir primer documento
@@ -150,7 +150,7 @@ export default function MedicalRecordsPage() {
             {records.map((record) => (
               <Link
                 key={record._id}
-                href={`/medical-records/${record._id}`}
+                href={`/dashboard/medical-records/${record._id}`}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-6 border border-gray-200 hover:border-blue-500"
               >
                 <div className="flex items-start justify-between mb-4">
