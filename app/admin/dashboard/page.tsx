@@ -153,7 +153,7 @@ export default function AdminDashboardPage() {
           <h3 className="text-xl font-bold text-gray-900 mb-6">Acciones Rápidas</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <a
-              href="/patients"
+              href="/dashboard/patients"
               className="flex items-center gap-3 p-4 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors border border-blue-200 cursor-pointer"
             >
               <Users className="w-6 h-6 text-blue-600" />
@@ -164,7 +164,7 @@ export default function AdminDashboardPage() {
             </a>
 
             <a
-              href="/doctors/new"
+              href="/dashboard/doctors/new"
               className="flex items-center gap-3 p-4 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors border border-purple-200 cursor-pointer"
             >
               <Stethoscope className="w-6 h-6 text-purple-600" />
@@ -175,7 +175,7 @@ export default function AdminDashboardPage() {
             </a>
 
             <a
-              href="/appointments"
+              href="/dashboard/appointments"
               className="flex items-center gap-3 p-4 bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-200 cursor-pointer"
             >
               <Calendar className="w-6 h-6 text-green-600" />
@@ -186,7 +186,7 @@ export default function AdminDashboardPage() {
             </a>
 
             <a
-              href="/consultations"
+              href="/dashboard/consultations"
               className="flex items-center gap-3 p-4 bg-orange-50 hover:bg-orange-100 rounded-lg transition-colors border border-orange-200 cursor-pointer"
             >
               <Activity className="w-6 h-6 text-orange-600" />
@@ -197,7 +197,7 @@ export default function AdminDashboardPage() {
             </a>
 
             <a
-              href="/statistics"
+              href="/dashboard/statistics"
               className="flex items-center gap-3 p-4 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors border border-pink-200 cursor-pointer"
             >
               <Activity className="w-6 h-6 text-pink-600" />
@@ -208,7 +208,7 @@ export default function AdminDashboardPage() {
             </a>
 
             <a
-              href="/settings"
+              href="/dashboard/settings"
               className="flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200 cursor-pointer"
             >
               <Shield className="w-6 h-6 text-gray-600" />

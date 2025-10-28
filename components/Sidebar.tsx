@@ -18,14 +18,14 @@ import {
 } from 'lucide-react';
 
 const menuItems = [
-  { name: 'Dashboard', icon: LayoutDashboard, href: '/' },
-  { name: 'Pacientes', icon: Users, href: '/patients' },
-  { name: 'Médicos', icon: Stethoscope, href: '/doctors' },
-  { name: 'Citas', icon: Calendar, href: '/appointments' },
-  { name: 'Consultas', icon: ClipboardList, href: '/consultations' },
-  { name: 'Prescripciones', icon: Pill, href: '/prescriptions' },
-  { name: 'Historias Clínicas', icon: FolderOpen, href: '/medical-records' },
-  { name: 'Estadísticas', icon: Activity, href: '/statistics' },
+  { name: 'Dashboard', icon: LayoutDashboard, href: '/dashboard' },
+  { name: 'Pacientes', icon: Users, href: '/dashboard/patients' },
+  { name: 'Médicos', icon: Stethoscope, href: '/dashboard/doctors' },
+  { name: 'Citas', icon: Calendar, href: '/dashboard/appointments' },
+  { name: 'Consultas', icon: ClipboardList, href: '/dashboard/consultations' },
+  { name: 'Prescripciones', icon: Pill, href: '/dashboard/prescriptions' },
+  { name: 'Historias Clínicas', icon: FolderOpen, href: '/dashboard/medical-records' },
+  { name: 'Estadísticas', icon: Activity, href: '/dashboard/statistics' },
 ];
 
 export default function Sidebar() {
@@ -65,7 +65,7 @@ export default function Sidebar() {
 
       <div className="absolute bottom-4 left-4 right-4">
         <Link
-          href="/settings"
+          href="/dashboard/settings"
           className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-700 transition-all text-white"
         >
           <Settings className="w-5 h-5" />
