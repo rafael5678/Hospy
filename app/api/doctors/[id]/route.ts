@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Doctor from '@/models/Doctor';
+import bcrypt from 'bcryptjs';
 
 export async function GET(
   request: NextRequest,
@@ -36,6 +37,14 @@ export async function PUT(
     await connectDB();
     
     const body = await request.json();
+    
+    // Si viene newPassword, encriptar y actualizar
+    if (body.newPassword) {
+      const hashedPassword = await bcrypt.hash(body.newPassword, 10);
+      body.password = hashedPassword;
+      delete body.newPassword;
+    }
+    
     const doctor = await Doctor.findByIdAndUpdate(
       params.id,
       body,

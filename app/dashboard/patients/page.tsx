@@ -238,14 +238,14 @@ export default function PatientsPage() {
                       <td className="py-4 px-4">
                         <div className="flex items-center justify-end gap-2">
                           <Link
-                            href={`/patients/${patient._id}`}
+                            href={`/dashboard/patients/${patient._id}`}
                             className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                             title="Ver detalles"
                           >
                             <Eye className="w-4 h-4" />
                           </Link>
                           <Link
-                            href={`/patients/${patient._id}/edit`}
+                            href={`/dashboard/patients/${patient._id}/edit`}
                             className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                             title="Editar"
                           >

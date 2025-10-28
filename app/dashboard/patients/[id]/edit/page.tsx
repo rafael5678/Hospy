@@ -10,6 +10,7 @@ export default function EditPatientPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [showPasswordSection, setShowPasswordSection] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -31,6 +32,7 @@ export default function EditPatientPage() {
     insuranceProvider: '',
     insuranceNumber: '',
     status: 'Activo',
+    newPassword: '', // Para cambiar contraseña
   });
 
   useEffect(() => {
@@ -63,6 +65,7 @@ export default function EditPatientPage() {
           insuranceProvider: patient.insuranceProvider || '',
           insuranceNumber: patient.insuranceNumber || '',
           status: patient.status,
+          newPassword: '',
         });
       } else {
         alert('Paciente no encontrado');
@@ -97,11 +100,16 @@ export default function EditPatientPage() {
     setSaving(true);
 
     try {
-      const dataToSend = {
+      const dataToSend: any = {
         ...formData,
         allergies: formData.allergies ? formData.allergies.split(',').map((a) => a.trim()) : [],
         medications: formData.medications ? formData.medications.split(',').map((m) => m.trim()) : [],
       };
+      
+      // Si no se cambió la contraseña, eliminar del objeto
+      if (!dataToSend.newPassword || dataToSend.newPassword.trim() === '') {
+        delete dataToSend.newPassword;
+      }
 
       const response = await fetch(`/api/patients/${params.id}`, {
         method: 'PUT',
@@ -428,6 +436,42 @@ export default function EditPatientPage() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Cambiar Contraseña */}
+        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mt-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+              🔒 Cambiar Contraseña
+            </h2>
+            <button
+              type="button"
+              onClick={() => setShowPasswordSection(!showPasswordSection)}
+              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+            >
+              {showPasswordSection ? 'Ocultar' : 'Mostrar'}
+            </button>
+          </div>
+          
+          {showPasswordSection && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Nueva Contraseña (dejar vacío para mantener la actual)
+              </label>
+              <input
+                type="password"
+                name="newPassword"
+                value={formData.newPassword}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                placeholder="Mínimo 6 caracteres"
+                minLength={6}
+              />
+              <p className="mt-2 text-sm text-gray-600">
+                ⚠️ Si ingresas una nueva contraseña, se actualizará el acceso del paciente
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="flex gap-4 pt-4">

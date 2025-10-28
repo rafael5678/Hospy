@@ -38,6 +38,14 @@ export async function PUT(
     await dbConnect();
 
     const body = await request.json();
+    
+    // Si viene newPassword, encriptar y actualizar
+    if (body.newPassword) {
+      const bcrypt = require('bcryptjs');
+      const hashedPassword = await bcrypt.hash(body.newPassword, 10);
+      body.password = hashedPassword;
+      delete body.newPassword;
+    }
 
     const patient = await Patient.findByIdAndUpdate(
       params.id,

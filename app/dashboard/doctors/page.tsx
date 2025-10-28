@@ -129,7 +129,7 @@ export default function DoctorsPage() {
             {doctors.map((doctor) => (
               <Link
                 key={doctor._id}
-                href={`/doctors/${doctor._id}`}
+                href={`/dashboard/doctors/${doctor._id}`}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-6 border border-gray-200 hover:border-blue-500"
               >
                 <div className="flex items-start justify-between mb-4">
