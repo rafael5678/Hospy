@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Patient from '@/models/Patient';
+import Appointment from '@/models/Appointment';
 
 // GET - Obtener todos los pacientes con búsqueda y filtros
 export async function GET(request: NextRequest) {
@@ -10,11 +11,31 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const search = searchParams.get('search') || '';
     const status = searchParams.get('status') || '';
+    const doctorId = searchParams.get('doctorId') || '';
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '10');
 
     // Construir query
     const query: any = {};
+
+    // Si se filtra por doctor, buscar solo pacientes con citas de ese médico
+    if (doctorId) {
+      const appointments = await Appointment.find({ doctor: doctorId }).distinct('patient');
+      if (appointments.length === 0) {
+        // Si el médico no tiene citas, devolver array vacío
+        return NextResponse.json({
+          success: true,
+          data: [],
+          pagination: {
+            total: 0,
+            page,
+            limit,
+            pages: 0,
+          },
+        });
+      }
+      query._id = { $in: appointments };
+    }
 
     if (search) {
       query.$or = [

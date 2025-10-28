@@ -54,8 +54,8 @@ export default function DoctorDashboard() {
         setConsultations(consultationsData.data.slice(0, 5));
       }
 
-      // Cargar pacientes del médico
-      const patientsRes = await fetch(`/api/patients?limit=10`);
+      // Cargar pacientes del médico (solo los que tienen citas con este médico)
+      const patientsRes = await fetch(`/api/patients?doctorId=${doctorId}&limit=10`);
       const patientsData = await patientsRes.json();
       if (patientsData.success) {
         setPatients(patientsData.data);
