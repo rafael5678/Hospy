@@ -1,0 +1,100 @@
+================================================================
+  PASOS RÁPIDOS PARA DESPLEGAR EN VERCEL
+================================================================
+
+✅ PASO 1: CONFIGURAR VARIABLES DE ENTORNO EN VERCEL
+-------------------------------------------------------
+1. Ve a: https://vercel.com/dashboard
+2. Abre tu proyecto "Hospy"
+3. Ve a: Settings → Environment Variables
+4. Agrega estas 2 variables:
+
+   Variable 1:
+   Name: MONGODB_URI
+   Value: [TU_CONEXION_MONGODB_ATLAS]
+   Environment: Production, Preview, Development
+
+   Variable 2:
+   Name: JWT_SECRET
+   Value: hospy-secret-key-production-2024
+   Environment: Production, Preview, Development
+
+
+✅ PASO 2: CONFIGURAR MONGODB ATLAS
+-------------------------------------------------------
+1. Ve a: https://cloud.mongodb.com
+2. Click en: Network Access (menú izquierdo)
+3. Click en: Add IP Address
+4. Selecciona: Allow Access from Anywhere (0.0.0.0/0)
+5. Click en: Confirm
+
+
+✅ PASO 3: REDESPLIEGA EN VERCEL
+-------------------------------------------------------
+1. Ve a: Deployments
+2. Click en el último deployment
+3. Click en los 3 puntos (•••)
+4. Click en: Redeploy
+5. Espera 1-2 minutos
+
+
+✅ PASO 4: CREAR ADMIN
+-------------------------------------------------------
+1. Una vez desplegado, ve a:
+   https://TU-PROYECTO.vercel.app/api/auth/admin/setup
+
+2. Deberías ver:
+   {
+     "success": true,
+     "message": "Admin creado exitosamente"
+   }
+
+
+✅ PASO 5: PRUEBA EL SISTEMA
+-------------------------------------------------------
+1. Ve a: https://TU-PROYECTO.vercel.app/admin/login
+2. Usuario: admin
+3. Contraseña: rafael
+4. ¡Listo! 🎉
+
+
+================================================================
+  ⚠️ SI HAY ERRORES
+================================================================
+
+ERROR: "bad auth : Authentication failed"
+-----------------------------------------
+Solución:
+1. Ve a MongoDB Atlas → Network Access
+2. Agrega IP: 0.0.0.0/0
+3. Redespliega en Vercel
+
+
+ERROR: "Cannot connect to MongoDB"
+-----------------------------------------
+Solución:
+1. Verifica MONGODB_URI en Vercel
+2. Asegúrate de que la contraseña sea correcta
+3. Redespliega
+
+
+ERROR: "Module not found"
+-----------------------------------------
+Solución:
+1. Verifica que package.json tenga todas las dependencias
+2. Haz commit y push
+3. Vercel lo redesplegará automáticamente
+
+
+================================================================
+  📞 RESUMEN
+================================================================
+
+1. ✅ Variables en Vercel (MONGODB_URI, JWT_SECRET)
+2. ✅ MongoDB Atlas permite 0.0.0.0/0
+3. ✅ Redespliega
+4. ✅ Crea admin en /api/auth/admin/setup
+5. ✅ Prueba login
+
+¡Tu sistema está en producción! 🚀
+
